@@ -45,16 +45,18 @@ if /i "%CREATE_VENV%"=="y" (
             if /i "%OVERWRITE_VENV%"=="y" (
                 echo Overwriting existing virtual environment...
                 rmdir /s /q "%PARENT_DIR%\!VENV_NAME!"
+                REM Create venv in the parent directory
+                echo Creating virtual environment in %PARENT_DIR%\!VENV_NAME!
+                python -m venv "%PARENT_DIR%\!VENV_NAME!"
             )
         )
     )
-    REM Create venv in the parent directory
-    echo Creating virtual environment in %PARENT_DIR%\!VENV_NAME!
-    python -m venv "%PARENT_DIR%\!VENV_NAME!"
     
-    REM Activate the virtual environment
-    echo Activating virtual environment...
-    call "%PARENT_DIR%\!VENV_NAME!\Scripts\activate.bat"
+    if /i "%CREATE_VENV%"=="y" (
+        REM Activate the virtual environment
+        echo Activating virtual environment...
+        call "%PARENT_DIR%\!VENV_NAME!\Scripts\activate.bat"
+    )
 )
 
 REM Ask if the user would like to install any additional libries
@@ -77,7 +79,7 @@ REM Upgrade pip to latest version
 python -m pip install --upgrade pip
 
 REM Create a log file for installation
-set LOGFILE=python_lib_install.log
+set LOGFILE=%PARENT_DIR%\venv_init\install_log.txt
 echo Starting Python Library Installation > "%LOGFILE%"
 
 REM Data Science and Machine Learning Libraries
