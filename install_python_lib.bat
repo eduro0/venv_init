@@ -50,6 +50,10 @@ if /i "%CREATE_VENV%"=="y" (
                 python -m venv "%PARENT_DIR%\!VENV_NAME!"
             )
         )
+    ) else (
+        REM Create venv in the parent directory
+        echo Creating virtual environment in %PARENT_DIR%\!VENV_NAME!
+        python -m venv "%PARENT_DIR%\!VENV_NAME!"
     )
     
     if /i "%CREATE_VENV%"=="y" (
