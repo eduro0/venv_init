@@ -46,6 +46,8 @@ The script installs the following libraries:
 - seaborn
 - scikit-learn
 - torch
+- transformersS
+- regex
 - tqdm 
 - ipykernel 
 - python-dotenv

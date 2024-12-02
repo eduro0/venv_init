@@ -88,7 +88,7 @@ echo Starting Python Library Installation > "%LOGFILE%"
 
 REM Data Science and Machine Learning Libraries
 echo Installing Data Science and Machine Learning Libraries...
-python -m pip install numpy pandas scikit-learn scipy matplotlib seaborn torch >> "%LOGFILE%" 2>&1
+python -m pip install numpy pandas scikit-learn scipy matplotlib seaborn torch trasformers regex >> "%LOGFILE%" 2>&1
 
 REM Utility and Productivity Libraries
 echo Installing Utility Libraries...
