@@ -56,11 +56,9 @@ if /i "%CREATE_VENV%"=="y" (
         python -m venv "%PARENT_DIR%\!VENV_NAME!"
     )
     
-    if /i "%CREATE_VENV%"=="y" (
-        REM Activate the virtual environment
-        echo Activating virtual environment...
-        call "%PARENT_DIR%\!VENV_NAME!\Scripts\activate.bat"
-    )
+    REM Activate the virtual environment
+    echo Activating virtual environment...
+    call "%PARENT_DIR%\!VENV_NAME!\Scripts\activate.bat"
 )
 
 REM Ask if the user would like to install any additional libries
